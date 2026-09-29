@@ -1,0 +1,43 @@
+<div class="search_section {% if page.display %}{{ page.display }}{% endif %}">
+  <div class="search_box">
+    
+    <input 
+      type="search"
+      id="search"
+      value='{% if page.city %}{{ page.city | replace: "-", " " | append: ", " | append: page.state | replace: "-", " " }}{% endif %}'
+      placeholder="Search city..."
+    />
+    
+    <div id="dropdown" class="dropdown hidden">
+        <ul id="suggestions"></ul>
+        <div id="loader"></div>
+        <div id="noResults">No results found</div>
+    </div>
+    
+  </div>
+  <div class="cat_plus_search">
+    {% assign active = page.category | default: "" %}
+    {% assign categories = "escorts,college-girls,callgirls,aunties,housewifes,bhabhis,models,high-profiles,russians" | split: "," %}
+    
+    <select id="category">
+      
+      <option value="" {% if active == "" %}selected{% endif %}>
+        Select Category
+      </option>
+    
+      {% for cat in categories %}
+        <option class="cat_option" value="{{ cat }}" {% if active == cat %}selected{% endif %}>
+          {{ cat | replace: "-", " " | capitalize }}
+        </option>
+      {% endfor %}   
+          
+    </select>
+    
+    </select>
+    
+    <button onclick="searchCity()">
+      <div class="icon_text"></div>
+      <span class="saerch_btn">Search</span>
+    </button>
+  </div>
+</div>
