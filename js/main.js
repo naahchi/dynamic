@@ -246,7 +246,7 @@ document.addEventListener("click", (e) => {
 // ====== INIT ===========
 // =======================
 
-fetch("/data/cities.json")
+fetch("https://naahchi.github.io/dynamic/data/cities.json")
   .then(res => res.json())
   .then(data => {
     cities = data;
