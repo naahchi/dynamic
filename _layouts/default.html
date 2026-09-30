@@ -15,7 +15,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" href="{{ '/assets/images/favicon/favicon.svg' | relative_url }}" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 </head>
 <body>
@@ -59,15 +59,15 @@
 
                             href="
                             {% if page.city and page.state %}
-                                dynamic/{{ page.state | slugify }}/{{ page.city | slugify }}/{{ cat }}/
+                                {{ '/' | relative_url }}{{ page.state | slugify }}/{{ page.city | slugify }}/{{ cat }}/
                             {% else %}
-                                dynamic/{{ cat }}/
+                                {{ '/' | relative_url }}dynamic/{{ cat }}/
                             {% endif %}"
 
                             class="menu-item {% if page.category == cat %}active_cat{% else %}not_active_cat{% endif %}"
                         >
-                            <img class="cat-loading {% if page.display %}{{ page.display }}{% endif %}" onload="this.classList.remove('cat-loading');" src="./assets/images/cat-icon/{{ cat }}.webp">
-                            <!-- <img class="{% if page.display %}{{ page.display }}{% endif %} cat-loading" onload="this.classList.remove('cat-loading');" src="/assets/images/cat-icon/{{ cat }}.webp"> -->
+                            <img class="cat-loading {% if page.display %}{{ page.display }}{% endif %}" onload="this.classList.remove('cat-loading');" src="{{ '/assets/images/cat-icon/' | relative_url }}{{ cat }}.webp">
+                            <!-- <img class="{% if page.display %}{{ page.display }}{% endif %} cat-loading" onload="this.classList.remove('cat-loading');" src="{{ '/assets/images/cat-icon/' | relative_url }}{{ cat }}.webp"> -->
                             <span>{{ cat | replace: "-", " " | capitalize }}</span>
                         </a>
                     {% endfor %}
@@ -121,7 +121,7 @@
     console.log("Supabase Connected");
 
 </script>
-<script src="./js/main.js"></script>
+<script src="{{ '/js/main.js' | relative_url }}"></script>
 </body>
 </html>
 

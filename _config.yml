@@ -1,0 +1,2 @@
+baseurl: "/dynamic" # the subpath of your site, e.g. /blog
+url: "https://naachi.github.io" # the base hostname & protocol for your site
