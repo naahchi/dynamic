@@ -664,13 +664,15 @@ li:hover, .active {
     }
     .menu_section{
         position: fixed;
+        left: 0;
+        right: 0;
         bottom: 0;
         padding: 0 10px;
         /* display: flex; */
         /* align-items: center; */
         justify-content: space-between;
         /* font-family: Arial, Helvetica, sans-serif; */
-        width: 100%;
+        width: auto;
         height: 45px;
         background-color: white;
         z-index: 999;
