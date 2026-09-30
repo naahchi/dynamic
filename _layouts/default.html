@@ -61,7 +61,7 @@
                             {% if page.city and page.state %}
                                 {{ '/' | relative_url }}{{ page.state | slugify }}/{{ page.city | slugify }}/{{ cat }}/
                             {% else %}
-                                {{ '/' | relative_url }}dynamic/{{ cat }}/
+                                {{ '/' | relative_url }}{{ cat }}/
                             {% endif %}"
 
                             class="menu-item {% if page.category == cat %}active_cat{% else %}not_active_cat{% endif %}"
