@@ -246,7 +246,7 @@ document.addEventListener("click", (e) => {
 // ====== INIT ===========
 // =======================
 
-fetch("https://naahchi.github.io/dynamic/data/cities.json")
+fetch("{{ '/data/cities.json' | relative_url }}")
   .then(res => res.json())
   .then(data => {
     cities = data;
@@ -291,11 +291,14 @@ function saveSearch(city, state, state_code, category) {
   localStorage.setItem("recentSearches", JSON.stringify(searches));
 }
 
+// const BASE_URL = window.location.origin;
+const BASE_URL = window.location.origin + "/dynamic";
+
 function buildUrl(state, city, category) {
-  if (state && city && category) return `/${state}/${city}/${category}/`;
-  if (state && city) return `/${state}/${city}/`;
-  if (category) return `/${category}/`;
-  return "/";
+  if (state && city && category) return `${BASE_URL}/${state}/${city}/${category}/`;
+  if (state && city) return `${BASE_URL}/${state}/${city}/`;
+  if (category) return `${BASE_URL}/${category}/`;
+  return `${BASE_URL}/`;
 }
 
 // Save Category Clicks
