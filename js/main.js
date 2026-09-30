@@ -246,7 +246,7 @@ document.addEventListener("click", (e) => {
 // ====== INIT ===========
 // =======================
 
-fetch("{{ '/data/cities.json' | relative_url }}")
+fetch("/data/cities.json")
   .then(res => res.json())
   .then(data => {
     cities = data;
